@@ -18,9 +18,9 @@ export const createWorkspaceRequest = async ({ name, description, token }) => {
     }
 };
 
-export const fetchWorkspacesRequest = async ({ token}) => {
+export const fetchWorkspacesRequest = async ({ token }) => {
     try {
-        const response = await axios.post('/workspaces', {}, {
+        const response = await axios.get('/workspaces', {
             headers: {
                 'x-access-token': token
             }
