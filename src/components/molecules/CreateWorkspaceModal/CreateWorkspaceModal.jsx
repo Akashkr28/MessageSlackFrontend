@@ -27,7 +27,7 @@ export const CreateWorkspaceModal = () => {
                 name: workspaceName
             });
             console.log('Successfully created workspace', data);
-            navigate(`/workspaces/${data.id}`);
+            navigate(`/workspaces/${data._id}`);
         } catch (error) {
             console.log('Error creating workspace', error);
         } finally {
