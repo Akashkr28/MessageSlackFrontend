@@ -3,10 +3,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { useCreateWorkspace } from "@/hooks/apis/workspaces/useCreateWorkspace";
 import { useCreateWorkSpaceModal } from "@/hooks/context/useCreateWorkspaceModals";
+import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CreateWorkspaceModal = () => {
+
+    const queryClient = useQueryClient()
 
     const { openCreateWorkspaceModal, setOpenCreateWorkspaceModal } = useCreateWorkSpaceModal();
 
@@ -28,6 +31,7 @@ export const CreateWorkspaceModal = () => {
             });
             console.log('Successfully created workspace', data);
             navigate(`/workspaces/${data._id}`);
+            queryClient.invalidateQueries('fetchWorkspaces');
         } catch (error) {
             console.log('Error creating workspace', error);
         } finally {
