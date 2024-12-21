@@ -1,12 +1,16 @@
 import { SideBarItem } from "@/components/atoms/SideBarItem/SideBarItem";
 import { WorkspacePanelHeader } from "@/components/molecules/Workspace/WorkspacePanelHeader";
+import { WorkspacePanelSection } from "@/components/molecules/Workspace/WorkspacePanelSection";
 import { useGetWorkspaceById } from "@/hooks/apis/workspaces/useGetWorkspaceById";
-import { AlertTriangleIcon, Loader, MessageSquareTextIcon } from "lucide-react";
+import { useCreateChannelModal } from "@/hooks/context/useCreateChannelModal";
+import { AlertTriangleIcon, HashIcon, Loader, MessageSquareTextIcon, SendHorizonalIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 export const WorkspacePanel = () => {
 
     const { workspaceId } = useParams();
+
+    const { setOpenCreateChannelModal } = useCreateChannelModal();
 
     const { workspace, isFetching, isSuccess } = useGetWorkspaceById(workspaceId);
 
@@ -40,7 +44,23 @@ export const WorkspacePanel = () => {
                     id="threads"
                     variant='active'
                 />
+                <SideBarItem
+                    label="Drafts & Sends"
+                    icon={SendHorizonalIcon}
+                    id="draft"
+                    variant='default'
+                />
             </div>
+
+            <WorkspacePanelSection
+                    label={'Channels'}
+                    onIconClick={() => {setOpenCreateChannelModal(true);}}
+            >
+                {workspace?.channels?.map((channel) => {
+                    return <SideBarItem key={channel.id} icon={HashIcon} label={channel.name}
+                    id={channel._id}/>
+                })}
+            </WorkspacePanelSection>
         </div>
     )
 }

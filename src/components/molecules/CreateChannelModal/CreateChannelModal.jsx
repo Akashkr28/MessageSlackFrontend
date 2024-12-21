@@ -39,7 +39,7 @@ export const CreateChannelModal = () => {
                         required
                     />
 
-                    <div className="flex justify-end mt-4'">
+                    <div className="flex justify-end mt-4">
                         <Button>
                             Create Channel
                         </Button>
