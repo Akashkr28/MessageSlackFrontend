@@ -2,17 +2,19 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { useDeleteWWorkspace } from "@/hooks/apis/workspaces/useDeleteWorkspace";
 import { useWorkspacePreferencesModals } from "@/hooks/context/useWorkspacePreferencesModals";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const WorkspacePreferencesModal = () => {
 
-    const { initialValue, openPreferences, setOpenPreferences, workspace } = useWorkspacePreferencesModals();
-
+    const queryClient = useQueryClient();
+    const navigate = useNavigate();
+    const { toast } = useToast();
     const [workspaceId, setWorkspaceId] = useState(null);
 
-    const { toast } = useToast(); 
-
+    const { initialValue, openPreferences, setOpenPreferences, workspace } = useWorkspacePreferencesModals();
     const { deleteWorkspaceMutation } = useDeleteWWorkspace(workspaceId);
 
     function handleClose() {
@@ -26,6 +28,9 @@ export const WorkspacePreferencesModal = () => {
     async function handleDelete() {
         try {
             await deleteWorkspaceMutation();
+            navigate('/home');
+            queryClient.invalidateQueries('fetchWorkspaces');
+            setOpenPreferences(false);
             toast({
                 title: 'Workspace Deleted',
                 type: 'success'
