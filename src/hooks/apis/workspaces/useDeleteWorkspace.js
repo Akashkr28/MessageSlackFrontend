@@ -19,6 +19,6 @@ export const useDeleteWWorkspace = (workspaceId) => {
         isPending,
         isSuccess,
         error,
-        createWorkspaceMutation,
+        deleteWorkspaceMutation,
     };
 }
