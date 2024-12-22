@@ -13,4 +13,4 @@ export const CreateChannelContextProvider = ({ children }) => {
     );
 };
 
-export default CreateChannelContext
+export default CreateChannelContext;
