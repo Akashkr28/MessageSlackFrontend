@@ -1,11 +1,14 @@
+import { WorkspaceInvitedModal } from "@/components/organisms/Modals/WorkspaceInvitedModal";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/hooks/context/useAuth";
 import { useWorkspacePreferencesModals } from "@/hooks/context/useWorkspacePreferencesModals";
 import { ChevronDownIcon, ListFilterIcon, SquarePenIcon } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const WorkspacePanelHeader = ({ workspace }) => {
+
+    const [openInviteModal, setOpenInviteModal] = useState(false);
 
     const { setWorkspace } = useWorkspacePreferencesModals(); 
 
@@ -22,6 +25,14 @@ export const WorkspacePanelHeader = ({ workspace }) => {
     }, [])
 
     return (
+        <>
+            <WorkspaceInvitedModal
+                openInviteModal={openInviteModal}
+                setOpenInviteModal={setOpenInviteModal}
+                workspaceName={workspace?.name}
+                joinCode={workspace?.joinCode}
+            />
+        
         <div className="flex items-center justify-between px-4 h-[50px] gap-0.5">
             <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -59,7 +70,10 @@ export const WorkspacePanelHeader = ({ workspace }) => {
                                 Preferences
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="cursor-pointer py-2">
+                            <DropdownMenuItem 
+                                className="cursor-pointer py-2"
+                                onClick={() => setOpenInviteModal(true)}
+                                >
                                 Invite people to {workspace?.name}
                             </DropdownMenuItem>
                         </>
@@ -82,5 +96,6 @@ export const WorkspacePanelHeader = ({ workspace }) => {
                     </Button>
             </div>
         </div>
-    )
+        </>
+    );
 };
