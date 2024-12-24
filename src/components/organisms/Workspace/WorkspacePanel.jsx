@@ -56,8 +56,8 @@ export const WorkspacePanel = () => {
                     label={'Channels'}
                     onIconClick={() => {setOpenCreateChannelModal(true);}}
             >
-                {workspace?.channels?.map((channel) => {
-                    return <SideBarItem key={channel.id} icon={HashIcon} label={channel.name}
+                {workspace?.channels?.map((channel) => {    
+                    return <SideBarItem key={channel._id} icon={HashIcon} label={channel.name}
                     id={channel._id}/>
                 })}
             </WorkspacePanelSection>
