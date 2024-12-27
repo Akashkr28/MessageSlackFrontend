@@ -24,6 +24,11 @@ export const WorkspaceNavbar = () => {
 
     return (
         <nav className="flex items-center justify-center h-10 p-1.5 bg-slack-dark">
+            <h1>
+                <span className="text-white text-xl font-semibold">
+                    Message Slack
+                </span>
+            </h1>
             <div className="flex-1"/>
             <div>
                 <Button 
