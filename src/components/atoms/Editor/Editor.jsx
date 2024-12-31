@@ -84,7 +84,7 @@ export const Editor = ({
                 <div className='flex px-2 pb-2 z-[5]'>
                     <Hint label={!isToolbarVisible ? 'Hide toolbar' : 'Show toolbar'} side='bottom' align='center'>
                         <Button
-                            size='IconSm'
+                            size='iconSm'
                             variant='ghost'
                             disabled={false}
                             onClick={toggleToolbar}
@@ -106,7 +106,7 @@ export const Editor = ({
 
                     <Hint label="Send Message">
                         <Button 
-                            size='IconSm'
+                            size='iconSm'
                             className='ml-auto bg-[#007a6a] hover:bg-[#007a6a]/80 text-white'
                             onClick={() => {
                                 onSubmit({ body: JSON.stringify(quillRef.current?.getContents()) });
