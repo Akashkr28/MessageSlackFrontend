@@ -5,7 +5,7 @@ import { Message } from "@/components/molecules/Message/Message";
 import { useGetChannelMessages } from "@/hooks/apis/channels/useGetChannelMessages";
 import { useSocket } from "@/hooks/context/useSocket";
 import { Loader2Icon, TriangleAlertIcon } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useChannelMessages } from "@/hooks/context/useChannelMessages";
 import { useQueryClient } from "@tanstack/react-query";
@@ -23,6 +23,14 @@ export const Channel = () => {
     const { joinChannel } = useSocket();
 
     const { messages, isSuccess } = useGetChannelMessages(channelId);
+
+    const messageContainerListRef = useRef(null);
+
+    useEffect(() => {
+        if(messageContainerListRef.current) {
+            messageContainerListRef.current.scrollTop = messageContainerListRef.current.scrollHeight;
+        }
+    }, [messageList]);
 
     useEffect(() => {
         console.log('ChannelId: ', channelId);
@@ -66,9 +74,16 @@ export const Channel = () => {
         <div className="flex flex-col h-full ">
         <ChannelHeader name={channelDetails?.name}/>
 
-            {messageList?.map((message) => {
+            <div 
+                ref={messageContainerListRef}
+                className="flex-5 overflow-y-auto p-5 gap-y-2"
+            >
+                {messageList?.map((message) => {
                 return <Message key={message._id} body={message.body} authorImage={message.senderId?.avatar} authorName={message.senderId?.username} createdAt={message.createdAt} />
-            })}
+                })}
+            </div>
+
+
 
 
             <div className="flex-1"/>
