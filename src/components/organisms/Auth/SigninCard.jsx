@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { LucideLoader2, TriangleAlert } from "lucide-react";
-
+import { ReactTyped } from "react-typed";
 import { useNavigate } from "react-router-dom";
 
 export const SigninCard = ({
@@ -21,6 +21,19 @@ export const SigninCard = ({
 
 
     return(
+        
+        <div className="flex flex-row gap-10">  
+            <div className="flex flex-col items-center justify-center">
+                <h1 className="text-6xl font-bold gap-10">
+                    Welcome to {" "}
+                    <ReactTyped className="text-blue-500" strings={["Message Slack"]} typeSpeed={100} />
+                </h1>
+                <p className="mt-5 text-2xl text-muted-foreground italic">
+                    "A Place where people collaborate with ease, share ideas, and connect."
+                </p>
+            </div>
+
+        
         <Card className='w-full h-full'>
             <CardHeader>
                 <CardTitle>Sign In</CardTitle>
@@ -44,7 +57,7 @@ export const SigninCard = ({
                     <div className="bg-primary/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-primary mb-5">
                         
                         <p>
-                            Successfully signed in. You will be redirected to dashboard page in a few seconds.
+                            Successfully signed in.
 
                             <LucideLoader2 className="animate-spin ml-2"/>
                         </p>
@@ -88,5 +101,6 @@ export const SigninCard = ({
                 </p>
             </CardContent>
         </Card>
+        </div>
     )
 }
