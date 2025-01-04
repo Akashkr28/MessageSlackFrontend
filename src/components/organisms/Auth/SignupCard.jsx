@@ -5,6 +5,19 @@ import { Separator } from "@/components/ui/separator";
 import { LucideLoader2, TriangleAlert } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
+import { ReactTyped } from "react-typed";
+
+const Navbar = () => {
+    return (
+        <nav className="w-full bg-gray-800 text-white flex items-center justify-between px-4 py-4">
+            <h1 className="text-lg font-bold">Message Slack</h1>
+            <Button variant="ghost" className="text-sm">
+                Learn More
+            </Button>
+        </nav>
+    );
+};
+
 
 export const SignupCard = ({ 
     signupForm, 
@@ -19,8 +32,13 @@ export const SignupCard = ({
     const navigate  = useNavigate();
 
     return (
-        <Card classname='w-full h-full'>
-             <CardHeader>
+        <div>
+        <Navbar /> {/* Add the Navbar at the top */}
+        <div className="flex flex-col items-center justify-center">
+
+                
+        <Card classname='w-full h-full' style={{margin: '150px',width: '400px'} }>
+            <CardHeader>
                 <CardTitle>Sign Up</CardTitle>
                 <CardDescription>Sign up to access your account</CardDescription>
 
@@ -49,8 +67,8 @@ export const SignupCard = ({
                     </div>
                 )}
 
-             </CardHeader>
-             <CardContent>
+            </CardHeader>
+            <CardContent>
                 <form className="space-y-3" onSubmit={onSignupFormSubmit}>
                     <Input
                         placeholder="Email"
@@ -101,7 +119,10 @@ export const SignupCard = ({
                     
                     >Sign In</span>
                 </p>
-             </CardContent>
+            </CardContent>
         </Card>
+        </div>
+
+        </div>
     )
 }

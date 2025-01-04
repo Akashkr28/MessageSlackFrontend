@@ -2,9 +2,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { LucideLoader2, TriangleAlert } from "lucide-react";
+import { CheckCheckIcon, CheckIcon, LucideLoader2, TriangleAlert } from "lucide-react";
 import { ReactTyped } from "react-typed";
 import { useNavigate } from "react-router-dom";
+
+const Navbar = () => {
+    return (
+        <nav className="w-full bg-gray-800 text-white flex items-center justify-between px-4 py-4">
+            <h1 className="text-lg font-bold">
+                Message Slack</h1>
+            <Button variant="ghost" className="text-sm">
+                Learn More
+            </Button>
+        </nav>
+    );
+};
 
 export const SigninCard = ({
     signinForm,
@@ -21,20 +33,21 @@ export const SigninCard = ({
 
 
     return(
-        
-        <div className="flex flex-row gap-10">  
-            <div className="flex flex-col items-center justify-center">
+        <>
+        <Navbar />
+        <div className="flex flex-row gap-10 items-center justify-center mt-52">  
+            <div className="flex flex-col items-center justify-center" style={{width: '350px'}}>
                 <h1 className="text-6xl font-bold gap-10">
                     Welcome to {" "}
                     <ReactTyped className="text-blue-500" strings={["Message Slack"]} typeSpeed={100} />
                 </h1>
-                <p className="mt-5 text-2xl text-muted-foreground italic">
+                <p className="mt-10 text-2xl text-muted-foreground italic ">
                     "A Place where people collaborate with ease, share ideas, and connect."
                 </p>
             </div>
 
         
-        <Card className='w-full h-full'>
+        <Card className='w-full h-full' style={{width: '400px'}}>
             <CardHeader>
                 <CardTitle>Sign In</CardTitle>
                 <CardDescription>Sign in to access your account</CardDescription>
@@ -56,11 +69,14 @@ export const SigninCard = ({
                 {isSuccess && (
                     <div className="bg-primary/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-primary mb-5">
                         
-                        <p>
-                            Successfully signed in.
+                        <p className="flex flex-row gap-4">
+                            
 
                             <LucideLoader2 className="animate-spin ml-2"/>
+                            Successfully signed in.
+                            
                         </p>
+                        <CheckIcon className="size-5 ml-2"/>
                     </div>
                 )}
 
@@ -102,5 +118,6 @@ export const SigninCard = ({
             </CardContent>
         </Card>
         </div>
+        </>
     )
 }
