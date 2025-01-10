@@ -17,13 +17,14 @@ export const createOrderRequest = async ({ token, amount }) => {
     }
 }
 
-export const capturePaymentRequest = async ({ token, orderId, status, paymentId }) => {
+export const capturePaymentRequest = async ({ token, orderId, status, paymentId, signature }) => {
     try {
         console.log('Capturing payment', orderId, status, paymentId);
         const response = await axios.post('/payments/capture', {
             orderId,
             status,
-            paymentId
+            paymentId,
+            signature
         }, {
             headers: {
                 'x-access-token': token
