@@ -35,8 +35,8 @@ export const SigninCard = ({
     return(
         <>
         <Navbar />
-        <div className="flex flex-row gap-10 items-center justify-center mt-52">  
-            <div className="flex flex-col items-center justify-center" style={{width: '350px'}}>
+        <div className="h-screen flex max-md:flex-col flex-row gap-10 items-center justify-center bg-blue-200">  
+            <div className="flex flex-col items-center justify-center max-w-[350px]">
                 <h1 className="text-6xl font-bold gap-10">
                     Welcome to {" "}
                     <ReactTyped className="text-blue-500" strings={["Message Slack"]} typeSpeed={100} />
@@ -47,7 +47,7 @@ export const SigninCard = ({
             </div>
 
         
-        <Card className='w-full h-full' style={{width: '400px'}}>
+        <Card className='w-[400px]'>
             <CardHeader>
                 <CardTitle>Sign In</CardTitle>
                 <CardDescription>Sign in to access your account</CardDescription>
