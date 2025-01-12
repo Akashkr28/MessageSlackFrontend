@@ -110,3 +110,13 @@
 .ql-container.ql-snow {
   border: none !important;
 }
+
+.message-sent {
+  background-color: #e0f7fa !important; /* Light blue background for sent messages */
+  text-align: right !important; /* Align text to the right */
+}
+
+.message-received {
+  background-color: #f1f1f1 !important; /* Light grey background for received messages */
+  text-align: left !important; /* Align text to the left */
+}

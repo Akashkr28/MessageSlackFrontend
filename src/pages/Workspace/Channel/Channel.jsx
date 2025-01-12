@@ -26,6 +26,8 @@ export const Channel = () => {
 
     const messageContainerListRef = useRef(null);
 
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+
     useEffect(() => {
         if(messageContainerListRef.current) {
             messageContainerListRef.current.scrollTop = messageContainerListRef.current.scrollHeight;
@@ -79,7 +81,9 @@ export const Channel = () => {
                 className="flex-5 overflow-y-auto p-5 gap-y-2"
             >
                 {messageList?.map((message) => {
-                return <Message key={message._id} body={message.body} authorImage={message.senderId?.avatar} authorName={message.senderId?.username} createdAt={message.createdAt} image={message.image}/>
+                    const isSender = message.senderId?.username === currentUser?.username;
+                    return <Message 
+                        isSender={isSender} key={message._id} body={message.body} authorImage={message.senderId?.avatar} authorName={message.senderId?.username} createdAt={message.createdAt} image={message.image}/>
                 })}
             </div>
 
