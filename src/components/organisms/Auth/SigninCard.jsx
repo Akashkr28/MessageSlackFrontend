@@ -115,6 +115,10 @@ export const SigninCard = ({
                     
                     >Sign Up</span>
                 </p>
+
+                <span
+                    className="text-sky-600 hover:underline cursor-pointer"
+                >Forgot Password ?</span>
             </CardContent>
         </Card>
         </div>

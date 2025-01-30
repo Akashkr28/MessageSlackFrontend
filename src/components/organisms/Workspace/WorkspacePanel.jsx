@@ -6,10 +6,12 @@ import { useGetWorkspaceById } from "@/hooks/apis/workspaces/useGetWorkspaceById
 import { useCreateChannelModal } from "@/hooks/context/useCreateChannelModal";
 import { AlertTriangleIcon, HashIcon, Loader, MessageSquareTextIcon, SendHorizonalIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
+import axios from '@/config/axiosConfig';
 
 export const WorkspacePanel = () => {
 
     const { workspaceId } = useParams();
+    console.log('Workspace ID:', workspaceId);
 
     const { setOpenCreateChannelModal } = useCreateChannelModal();
 
@@ -31,7 +33,7 @@ export const WorkspacePanel = () => {
             </div>
         )
     }
-
+          
     return (
         <div className="flex flex-col h-full bg-slack-medium">
             <WorkspacePanelHeader workspace={workspace}/>
@@ -72,7 +74,9 @@ export const WorkspacePanel = () => {
                         key={item.membersId._id} 
                         label={item.membersId.username} 
                         id={item.membersId._id} 
-                        image={item.membersId.avatar} />
+                        image={item.membersId.avatar}
+                        onRemove={() => handleRemoveMember(item.membersId._id)}
+                        />    
                 })}
             </WorkspacePanelSection>
         </div>
