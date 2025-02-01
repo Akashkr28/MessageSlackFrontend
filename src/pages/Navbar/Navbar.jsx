@@ -55,8 +55,12 @@ export const Navbar = () => {
         </ul>
   
         <div className="flex items-center">
-          <Button variant="secondary" className="hidden md:block px-2">
-            Login
+          <Button 
+            variant="secondary" 
+            className="hidden md:block px-2"
+            onClick={() => navigate('/auth/signin')}
+            >
+            Sign In
           </Button>
           <Button 
             className="hidden md:block ml-2 mr-2"
