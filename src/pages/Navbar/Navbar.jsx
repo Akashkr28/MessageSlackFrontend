@@ -21,7 +21,7 @@ export const Navbar = () => {
     return (
       <>
         
-        <Card className="container bg-card py-3 px-4 border-0 flex items-center justify-between gap-6 rounded-2xl mt-5" style={{margin: 'auto'}}>
+        <Card className="container bg-card py-3 px-4 border-0 flex items-center justify-between gap-6 rounded-3xl mt-5 shadow-xl" style={{margin: 'auto'}}>
         {/* <ShadcnKit className="text-primary cursor-pointer" /> */}
   
         <ul className="hidden md:flex items-center gap-10 text-card-foreground">
