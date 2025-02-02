@@ -7,7 +7,7 @@ import FlipWordsDemo from "../Flipword/Flipword";
 export default function HeroSection() {
   return (
     <>
-    <div className="flex flex-col items-center justify-top min-h-screen p-4">
+    <div className="flex flex-col items-center justify-start min-h-screen p-4">
       {/* Main Banner */}
       <div className="relative w-full max-w-full h-96 text-black p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between">
         <div className="max-w-md">
