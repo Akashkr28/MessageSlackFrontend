@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ReactTyped } from "react-typed";
 import CarouselPlugin from "../CarouselCard/CarouselCard";
 import FlipWordsDemo from "../Flipword/Flipword";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
   return (
     <>
     <div className="flex flex-col items-center justify-start min-h-screen p-4">
@@ -17,7 +19,10 @@ export default function HeroSection() {
             <ReactTyped className="text-blue-500 md:text-6xl" strings={["Message Slack"]} typeSpeed={100} />
           </h1>
           <div className="mt-4 flex gap-3">
-            <Button className="bg-white text-black px-6 py-2 hover:bg-black hover:text-white">Get Started</Button>
+            <Button 
+              className="bg-white text-black px-6 py-2 hover:bg-black hover:text-white"
+              onClick={() => navigate('/auth/signup')}
+              >Get Started</Button>
             <Button className="bg-black text-white px-6 py-2 border border-white">Live Preview</Button>
           </div>
         </div>
