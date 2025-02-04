@@ -38,8 +38,7 @@ export default function CarouselPlugin() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+
     </Carousel>
   )
 }
