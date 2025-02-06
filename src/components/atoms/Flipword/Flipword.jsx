@@ -7,12 +7,11 @@ export default function FlipWordsDemo() {
   return (
     (<div className="h-[15rem] flex justify-center items-center px-20">
       <div
-        className="text-6xl mx-auto font-bold text-neutral-600 dark:text-neutral-400">
+        className="text-4xl mx-auto font-bold text-neutral-600 dark:text-neutral-400">
         Where
         <FlipWords 
-            className={"text-primary text-sky-800"}
-            words={words}/>
-        happens.
+            className={"text-primary text-4xl mx-auto font-bold text-blue-800 dark:text-blue-400"}
+            words={words}/>happens.
       </div>
     </div>)
   );

@@ -11,7 +11,7 @@ export default function HeroSection() {
     <>
     <div className="flex flex-col items-center justify-start min-h-screen p-4">
       {/* Main Banner */}
-      <div className="relative w-full max-w-full h-96 text-black p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between">
+      <div className="relative w-full max-w-screen-2xl h-96 text-black p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between">
         <div className="max-w-md">
           <h1 
             className="text-2xl md:text-5xl font-bold">
@@ -20,16 +20,26 @@ export default function HeroSection() {
           </h1>
           <div className="mt-4 flex gap-3">
             <Button 
-              className="bg-white text-black px-6 py-2 hover:bg-black hover:text-white"
+              className="bg-black text-white px-6 py-2 border border-white hover:bg-white hover:text-black"
               onClick={() => navigate('/auth/signup')}
               >Get Started</Button>
-            <Button className="bg-black text-white px-6 py-2 border border-white">Live Preview</Button>
           </div>
         </div>
-        <div className="w-64 md:w-80">
+        <div className="w-64 md:w-96">
           <img src="https://kit.shadcnui.com/_next/image?url=%2Fassets%2Fimages%2Fnew-intro-landing%2Fbanner.png&w=1920&q=75" alt="Illustration" className="w-full" />
         </div>
       </div>
+
+      <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+
+      {/*Video Section */}
+      <div className="relative w-full max-w-screen-md h-96 p-5 mt-10 rounded-xl flex flex-col md:flex-row items-center justify-between">
+        <video src="../../assets/hero.mp4" className="rounded-xl"  autoPlay loop muted>
+          <source type="video/mp4" src="../../assets/hero.mp4"/>
+        </video>
+      </div>
+
+      <FlipWordsDemo />
 
       {/* Inquiry Section */}
       <Card className="mt-10 w-full max-w-3xl bg-[#334155] text-white rounded-xl">
@@ -41,8 +51,7 @@ export default function HeroSection() {
           </div>
         </CardContent>
       </Card>
-      <FlipWordsDemo />
-      <CarouselPlugin />
+      
     </div>
     
     </>
