@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ReactTyped } from "react-typed";
-import CarouselPlugin from "../CarouselCard/CarouselCard";
-import FlipWordsDemo from "../Flipword/Flipword";
 import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
@@ -10,6 +8,7 @@ export default function HeroSection() {
   return (
     <>
     <div className="flex flex-col items-center justify-start min-h-screen p-4">
+
       {/* Main Banner */}
       <div className="relative w-full max-w-screen-2xl h-96 text-black p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between">
         <div className="max-w-md">
@@ -33,14 +32,16 @@ export default function HeroSection() {
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
       {/*Video Section */}
-      <div className="relative w-full max-w-screen-md h-96 p-5 mt-10 rounded-xl flex flex-col md:flex-row items-center justify-between">
+      <div className="relative w-full max-w-screen-md md:h-96 h-50 p-5 md:mt-10 mt-4 rounded-xl flex flex-col md:flex-row items-center justify-center">
         <video src="../../assets/hero.mp4" className="rounded-xl"  autoPlay loop muted>
           <source type="video/mp4" src="../../assets/hero.mp4"/>
         </video>
       </div>
-
-      <FlipWordsDemo />
-
+      
+      <h1 className="w-screen md:w-1/2 flex justify-center items-center text-2xl md:text-5xl font-bold mt-1 md:mt-20 text-center">
+        Your people, projects, apps and AI, all on the world's most beloved work operating system.
+      </h1>
+      
       {/* Inquiry Section */}
       <Card className="mt-10 w-full max-w-3xl bg-[#334155] text-white rounded-xl">
         <CardContent className="p-6 text-center">

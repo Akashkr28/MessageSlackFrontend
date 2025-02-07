@@ -62,4 +62,3 @@ export default {
   plugins: ["tailwindcss-animate", daisyui],
 
 }
-
