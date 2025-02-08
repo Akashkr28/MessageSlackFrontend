@@ -6,18 +6,6 @@ import { CheckCheckIcon, CheckIcon, LucideLoader2, TriangleAlert } from "lucide-
 import { ReactTyped } from "react-typed";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
-    return (
-        <nav className="w-full bg-gray-800 text-white flex items-center justify-between px-4 py-4">
-            <h1 className="text-lg font-bold">
-                Message Slack</h1>
-            <Button variant="ghost" className="text-sm">
-                Learn More
-            </Button>
-        </nav>
-    );
-};
-
 export const SigninCard = ({
     signinForm,
     setSigninForm,
@@ -33,9 +21,7 @@ export const SigninCard = ({
 
 
     return(
-        <>
-        <Navbar />
-        <div className="h-screen flex max-md:flex-col flex-row gap-10 items-center justify-center bg-blue-200">  
+        <div className="h-screen flex max-md:flex-col flex-row gap-10 items-center justify-center ">  
             <div className="flex flex-col items-center justify-center max-w-[350px]">
                 <h1 className="text-6xl font-bold gap-10">
                     Welcome to {" "}
@@ -122,6 +108,6 @@ export const SigninCard = ({
             </CardContent>
         </Card>
         </div>
-        </>
+
     )
 }
