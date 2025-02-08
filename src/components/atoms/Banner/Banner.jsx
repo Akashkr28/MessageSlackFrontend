@@ -33,7 +33,7 @@ export default function HeroSection() {
 
       {/*Video Section */}
       <div className="relative w-full max-w-screen-md md:h-96 h-50 p-5 md:mt-10 mt-4 rounded-xl flex flex-col md:flex-row items-center justify-center">
-        <video src="../../assets/hero.mp4" className="rounded-xl"  autoPlay loop muted>
+        <video src="https://a.slack-edge.com/0cedc3b/marketing/img/homepage/true-prospects/hero-revamp/animation/hero@2x.IN.mp4" className="rounded-xl"  autoPlay loop muted>
           <source type="video/mp4" src="../../assets/hero.mp4"/>
         </video>
       </div>
